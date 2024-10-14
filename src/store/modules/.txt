@@ -1,0 +1,35 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+ 
+export const xx = createAsyncThunk('xx/xx', async () => {
+    const res = await axios.get(``);
+    return res.data;
+});
+
+const initialState = {    
+}; 
+
+export const 이름Slice = createSlice({
+    name: '이름',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(xx.pending, (state, action) => {
+                 
+            })
+            .addCase(xx.fulfilled, (state, action) => {
+                 
+            })
+            .addCase(x.rejected, (state, action) => {
+                
+            });
+    },
+});
+
+// export const { 액션함수명 } = 이름Slice.actions;
+export default 이름Slice.reducer;
+
+
+
+
