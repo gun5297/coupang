@@ -86,6 +86,8 @@ export const LayoutWrap = styled.div``;
 export const InnerWrap = styled.div`
     width: 102rem;
     margin: auto;
+    box-sizing: border-box;
+    position: relative;
     h1 {
     }
 `;
