@@ -29,14 +29,14 @@ export const TodayproductSlice = createSlice({
     name: 'TodayproductSlice',
     initialState,
     reducers: {
-        isTodayproductSelCategory: (state, action) => {
+        isSelTodayproduct: (state, action) => {
             state.selTodayProduct = state.Todayproduct.find((item) => item.id === action.payload);
         },
-        isTodayproductDelCategory: (state) => {
+        isDelTodayproduct: (state) => {
             state.selTodayProduct = {};
         },
     },
 });
 
-export const { isTodayproductSelCategory, isTodayproductDelCategory } = TodayproductSlice.actions;
+export const { isSelTodayproduct, isDelTodayproduct } = TodayproductSlice.actions;
 export default TodayproductSlice.reducer;

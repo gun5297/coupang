@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { InnerWrap } from '../../style/styled';
 import { TodaysWrap } from './styled';
-import {
-    isTodayproductDelCategory,
-    isTodayproductSelCategory,
-} from '../../store/modules/TodayproductSlice';
+import { isDelTodayproduct, isSelTodayproduct } from '../../store/modules/TodayproductSlice';
 
 const Todays = () => {
     const { Todayproduct, selTodayProduct } = useSelector((state) => state.Todayproduct);
@@ -16,10 +13,7 @@ const Todays = () => {
                     <h2>오늘의 발견</h2>
                     <p>오늘 쿠팡이 엄선한 가장 HOT! 한 상품!</p>
                 </div>
-                <div
-                    className='grid-wrap'
-                    onMouseLeave={() => dispatch(isTodayproductDelCategory())}
-                >
+                <div className='grid-wrap' onMouseLeave={() => dispatch(isDelTodayproduct())}>
                     {Todayproduct.map((today, idx) => (
                         <div
                             className={
@@ -28,7 +22,7 @@ const Todays = () => {
                                     : 'card ' + 'card' + (idx + 1)
                             }
                             key={today.id}
-                            onMouseEnter={() => dispatch(isTodayproductSelCategory(today.id))}
+                            onMouseEnter={() => dispatch(isSelTodayproduct(today.id))}
                         >
                             <img src={today.img} alt={today.name} />
                             <div className='btn-wrap'>

@@ -16,11 +16,11 @@ export const VisualSlice = createSlice({
     name: 'VisualSlice',
     initialState,
     reducers: {
-        isVisualSelCategory: (state, action) => {
+        isSelVisual: (state, action) => {
             state.selVisual = state.Visual.find((item) => item.id === action.payload);
         },
     },
 });
 
-export const { isVisualSelCategory } = VisualSlice.actions;
+export const { isSelVisual } = VisualSlice.actions;
 export default VisualSlice.reducer;
