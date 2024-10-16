@@ -2,15 +2,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SearchFormWrap } from './styled';
 import { useState } from 'react';
 import { isSelCategory } from '../../store/modules/CategorySlice';
+import { useNavigate } from 'react-router-dom';
 
 const SearchForm = () => {
     const [isView, setIsView] = useState(false);
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const { Category, selCategory } = useSelector((state) => state.Category);
     const onSubmit = (e) => {
         e.preventDefault();
         setSearch('');
+        if (search) {
+            navigate(`/product/${selCategory.value}/${search}`);
+        } else {
+            navigate(`/product/${selCategory.value}`);
+        }
     };
     return (
         <SearchFormWrap onSubmit={onSubmit}>

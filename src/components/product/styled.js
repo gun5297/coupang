@@ -5,6 +5,11 @@ export const ProductInfoWrap = styled.div`
     box-sizing: border-box;
     padding: 25px 0;
     margin: auto;
+    .product_review {
+        color: var(--blue-main);
+        font-weight: 400;
+        font-size: 1.4rem;
+    }
     .top-wrap {
         display: flex;
         margin-bottom: 80px;
@@ -37,11 +42,6 @@ export const ProductInfoWrap = styled.div`
                 align-items: center;
                 position: relative;
                 padding-bottom: 4px;
-            }
-            .product_review {
-                color: var(--blue-main);
-                font-weight: 400;
-                font-size: 1.4rem;
             }
         }
         .price {
@@ -144,6 +144,71 @@ export const ProductInfoWrap = styled.div`
             }
         }
     }
+    .recommended-product {
+        width: 100%;
+        box-sizing: border-box;
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            span {
+                color: red;
+                font-weight: 700;
+            }
+        }
+        ul {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            user-select: none;
+            li {
+                width: 19%;
+                height: 380px;
+                overflow: hidden;
+                cursor: pointer;
+                &:hover {
+                    .text-wrap {
+                        p {
+                            color: var(--blue-main);
+                        }
+                    }
+                }
+                .review {
+                    display: flex;
+                    align-items: center;
+                }
+                .img-wrap {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                &:not(:last-of-type) {
+                    margin-right: 1%;
+                }
+                .text-wrap {
+                    p {
+                        font-size: 1.4rem;
+                        color: #999;
+                    }
+                }
+                .price-wrap {
+                    span {
+                        margin-right: 10px;
+                        font-weight: 700;
+                        &:first-of-type {
+                            text-decoration: line-through;
+                            color: #dcdcdc;
+                        }
+                        &:last-of-type {
+                            color: #cb1400;
+                        }
+                    }
+                }
+            }
+        }
+    }
     .btm-wrap {
         width: 100%;
         margin-bottom: 300px;
@@ -182,8 +247,79 @@ export const ProductInfoWrap = styled.div`
         }
     }
 `;
-export const ProductListWrap = styled.ul``;
-export const ProductItemWrap = styled.li``;
+export const ProductListWrap = styled.ul`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+`;
+export const ProductItemWrap = styled.li`
+    width: 24%;
+    margin-right: 1%;
+    margin-bottom: 5%;
+    height: 500px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.005);
+        .product_name {
+            color: var(--blue-main);
+        }
+    }
+    div {
+        margin-bottom: 3px;
+    }
+    .img-wrap {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    .shipping-information {
+        margin-bottom: 6px;
+        p {
+            font-size: 1.2rem;
+            color: #999;
+        }
+    }
+    .product_name {
+        p {
+            font-size: 1.4rem;
+        }
+    }
+    .price {
+        font-size: 1.2rem;
+        .sale {
+            margin-right: 6px;
+            color: #cb1400;
+            text-decoration: none;
+        }
+        em {
+            margin-right: 6px;
+        }
+        span {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .product_sale_price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #cb1400;
+        }
+    }
+    .review {
+        display: flex;
+        align-items: center;
+        span {
+            font-size: 1.2rem;
+            color: #999;
+        }
+    }
+    .shipping {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+`;
 
 export const Product_review_percent = styled.div`
     position: relative;

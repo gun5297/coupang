@@ -14,7 +14,7 @@ export const SearchFormWrap = styled.form`
             transform-origin: top;
             transition: all 0.3s;
             overflow: scroll;
-            max-height: 700px;
+            max-height: 360px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
                 rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
             z-index: 10;

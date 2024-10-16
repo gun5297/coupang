@@ -13,10 +13,10 @@ const App = () => {
                     <Route path='/' element={<Layout />}>
                         <Route index element={<Main />} />
                         <Route path='/product'>
-                            <Route index element={<Product />} />
                             <Route path=':category'>
                                 <Route index element={<Product />} />
-                                <Route path=':product_id' element={<ProductInfo />} />
+                                <Route path='info/:product_id' element={<ProductInfo />} />
+                                <Route path=':search' element={<Product />} />
                             </Route>
                         </Route>
                     </Route>

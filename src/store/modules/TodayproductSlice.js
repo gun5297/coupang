@@ -2,7 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     Todayproduct: [
-        { id: 1, img: '/images/Todays/img1.jpg', name: '미샤환절기케어', category: 'Health' },
+        {
+            id: 1,
+            img: '/images/Todays/img1.jpg',
+            name: '미샤환절기케어',
+            category: 'Beauty',
+            product_id: 6,
+        },
         { id: 2, img: '/images/Todays/img2.jpg', name: '종근당건강홈삼정스틱', category: 'Health' },
         { id: 3, img: '/images/Todays/img3.jpg', name: '손편한고무장갑', category: 'Household' },
         {

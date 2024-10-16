@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Product_review_percent, ProductInfoWrap } from './styled';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -10,12 +10,19 @@ const ProductInfo = () => {
     const onProduct = Product[category].product.find(
         (item) => item.product_id === Number(product_id)
     );
+    const isProduct = Product[category].product.filter(
+        (item) => item.product_id !== onProduct.product_id
+    );
     const currentDate = new Date();
     const month = currentDate.getMonth() + 1;
     const date = currentDate.getDate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setCnt(1);
+        window.scrollTo({
+            top: 0,
+        });
     }, [onProduct, category, product_id]);
     return (
         <ProductInfoWrap>
@@ -25,14 +32,19 @@ const ProductInfo = () => {
                 </div>
                 <div className='text-wrap'>
                     <h2 className='product_name'>
-                        {onProduct.product_name},{onProduct.product_in_cnt} , {cnt}개
+                        {onProduct.product_name},{onProduct.product_in_cnt}개 , {cnt}개
                     </h2>
                     <div className='review'>
                         <Product_review_percent width={onProduct.product_review_percent + '%'}>
                             <span className='product_review_percent0'></span>
                             <span className='product_review_percent1'></span>
                         </Product_review_percent>
-                        <p className='product_review'>{onProduct.product_review}개 상품명</p>
+                        <p className='product_review'>
+                            {onProduct.product_review
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                            개 상품평
+                        </p>
                     </div>
                     <div className='price'>
                         <em>
@@ -109,6 +121,47 @@ const ProductInfo = () => {
                         </button>
                     </div>
                 </div>
+            </div>
+            <div className='recommended-product'>
+                <h2>
+                    현재 보고있는 상품과 유사한 상품 <span>추천!</span>
+                </h2>
+                <ul>
+                    {isProduct.map((item) => (
+                        <li
+                            key={item.product_id}
+                            onClick={() => navigate(`/product/${category}/info/${item.product_id}`)}
+                        >
+                            <div className='img-wrap'>
+                                <img src={item.product_img} alt={item.product_name} />
+                            </div>
+                            <div className='review'>
+                                <Product_review_percent width={item.product_review_percent + '%'}>
+                                    <span className='product_review_percent0'></span>
+                                    <span className='product_review_percent1'></span>
+                                </Product_review_percent>
+                                <p className='product_review'>{item.product_review}개 상품평</p>
+                            </div>
+                            <div className='text-wrap'>
+                                <p>{item.product_name}</p>
+                            </div>
+                            <div className='price-wrap'>
+                                <span>
+                                    {item.product_price
+                                        .toString()
+                                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                    원
+                                </span>
+                                <span>
+                                    {item.product_sale_price
+                                        .toString()
+                                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                    원
+                                </span>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
             <div className='btm-wrap'>
                 <div className='tab-menu-wrap'>

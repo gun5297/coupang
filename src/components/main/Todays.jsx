@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { InnerWrap } from '../../style/styled';
 import { TodaysWrap } from './styled';
 import { isDelTodayproduct, isSelTodayproduct } from '../../store/modules/TodayproductSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Todays = () => {
     const { Todayproduct, selTodayProduct } = useSelector((state) => state.Todayproduct);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     return (
         <TodaysWrap>
             <InnerWrap className='inner'>
@@ -23,6 +25,9 @@ const Todays = () => {
                             }
                             key={today.id}
                             onMouseEnter={() => dispatch(isSelTodayproduct(today.id))}
+                            onClick={() =>
+                                navigate(`/product/${today.category}/info/${today.product_id}`)
+                            }
                         >
                             <img src={today.img} alt={today.name} />
                             <div className='btn-wrap'>
