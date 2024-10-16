@@ -57,7 +57,8 @@ export const authSlice = createSlice({
                 login.userID === userID ? { ...login, name, tel, email, password } : login
             );
             state.loginUser = editUser;
-            // state.selloginUser = { ...editUser };
+            state.selloginUser = editUser.find((user) => user.userID === userID);
+            alert('수정되었습니다.');
         },
     },
 });

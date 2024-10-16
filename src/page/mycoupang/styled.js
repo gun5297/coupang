@@ -62,12 +62,14 @@ export const MyCoupangWrap = styled.div`
                         }
                     }
                 }
+                .button,
                 button {
                     box-sizing: border-box;
                     padding: 3px 20px;
                     background: #fff;
                     border: 1px solid #dcdcdc;
                     cursor: pointer;
+                    font-size: 1.2rem;
                     &:hover {
                         background-color: #fafafa;
                     }

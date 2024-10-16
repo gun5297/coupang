@@ -37,19 +37,17 @@ const MyCoupang = () => {
                         <span className='title'>아이디(이메일)</span>
                         <div className='edit'>
                             <p className='email'>{selloginUser.email}</p>
-                            <button
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    setIsEdit({ ...isEdit, email: true });
-                                }}
+                            <em
+                                className='button'
+                                onClick={() => setIsEdit({ ...isEdit, email: true })}
                             >
                                 이메일 변경
-                            </button>
+                            </em>
                             {isEdit.email && (
                                 <div className='edit-wrap'>
                                     <label htmlFor='email'>새로운 이메일을 입력해 주세요</label>
                                     <input
-                                        type='text'
+                                        type='email'
                                         name='email'
                                         id='email'
                                         value={isUser.email}
@@ -73,14 +71,12 @@ const MyCoupang = () => {
                         <span className='title'>이름</span>
                         <div className='edit'>
                             <p className='password'>{selloginUser.name}</p>
-                            <button
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    setIsEdit({ ...isEdit, name: true });
-                                }}
+                            <em
+                                className='button'
+                                onClick={() => setIsEdit({ ...isEdit, name: true })}
                             >
                                 이름 변경
-                            </button>
+                            </em>
                             {isEdit.name && (
                                 <div className='edit-wrap'>
                                     <label htmlFor='name'>새로운 이름을 입력해 주세요</label>
@@ -93,7 +89,11 @@ const MyCoupang = () => {
                                     />
                                     <button
                                         type='submit'
-                                        onClick={() => setIsEdit({ ...isEdit, name: false })}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            onSubmit(e);
+                                            setIsEdit({ ...isEdit, name: false });
+                                        }}
                                     >
                                         변경완료
                                     </button>
@@ -105,14 +105,12 @@ const MyCoupang = () => {
                         <span className='title'>휴대폰번호</span>
                         <div className='edit'>
                             <p className='password'>{selloginUser.tel}</p>
-                            <button
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    setIsEdit({ ...isEdit, tel: true });
-                                }}
+                            <em
+                                className='button'
+                                onClick={() => setIsEdit({ ...isEdit, tel: true })}
                             >
                                 휴대폰 번호 변경
-                            </button>
+                            </em>
                             {isEdit.tel && (
                                 <div className='edit-wrap'>
                                     <label htmlFor='name'>새로운 번호를 입력해 주세요</label>
@@ -125,7 +123,11 @@ const MyCoupang = () => {
                                     />
                                     <button
                                         type='submit'
-                                        onClick={() => setIsEdit({ ...isEdit, tel: false })}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            onSubmit(e);
+                                            setIsEdit({ ...isEdit, tel: false });
+                                        }}
                                     >
                                         변경완료
                                     </button>

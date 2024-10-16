@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { TopBarInnerWrap } from '../style/styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { isLogout } from '../store/modules/authSlice';
@@ -6,6 +6,7 @@ import { isLogout } from '../store/modules/authSlice';
 const TopBar = () => {
     const { selloginUser, isAuth } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     return (
         <div className='top-bar'>
             <TopBarInnerWrap>
@@ -31,7 +32,13 @@ const TopBar = () => {
                         <>
                             <span className='userName'>{selloginUser.name}님</span>
                             <li className='logout'>
-                                <a href='#' onClick={() => dispatch(isLogout())}>
+                                <a
+                                    href='#'
+                                    onClick={() => {
+                                        navigate('/');
+                                        dispatch(isLogout());
+                                    }}
+                                >
                                     로그아웃
                                 </a>
                             </li>
