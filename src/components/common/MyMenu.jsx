@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import { MyMenuWrap } from './styled';
 
 const MyMenu = () => {
+    const navigate = useNavigate();
     return (
         <MyMenuWrap>
-            <li>
+            <li onClick={() => navigate('/mycoupang')}>
                 <i className='xi-user-o' />
                 <em>마이쿠팡</em>
             </li>

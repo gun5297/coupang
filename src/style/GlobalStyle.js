@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
   :root{
     --top-bar-color: #f0f0f0;
     --blue-main: #4285f4;
+    --red-main: #cb1400;
   }
   html{
     font-size: 10px;

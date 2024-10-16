@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './style/GlobalStyle';
 import Layout from './common/Layout';
-import { Main, Product } from './page';
+import { AuthJoin, AuthLogin, Main, MyCoupang, Product } from './page';
 import ProductInfo from './components/product/ProductInfo';
 
 const App = () => {
@@ -12,6 +12,7 @@ const App = () => {
                 <Routes>
                     <Route path='/' element={<Layout />}>
                         <Route index element={<Main />} />
+                        <Route path='/mycoupang' element={<MyCoupang />} />
                         <Route path='/product'>
                             <Route path=':category'>
                                 <Route index element={<Product />} />
@@ -20,6 +21,8 @@ const App = () => {
                             </Route>
                         </Route>
                     </Route>
+                    <Route path='/login' element={<AuthLogin />} />
+                    <Route path='/Join' element={<AuthJoin />} />
                 </Routes>
             </BrowserRouter>
         </>

@@ -103,6 +103,10 @@ export const TopBarInnerWrap = styled.section`
         display: flex;
         align-items: center;
         justify-content: center;
+        span {
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
         li {
             display: flex;
             align-items: center;
@@ -112,6 +116,12 @@ export const TopBarInnerWrap = styled.section`
             }
             a {
                 font-size: 1.2rem;
+            }
+
+            &.logout {
+                padding: 3px 10px;
+                box-sizing: border-box;
+                background-color: #fafafa;
             }
         }
     }

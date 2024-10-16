@@ -1,6 +1,11 @@
+import { Link } from 'react-router-dom';
 import { TopBarInnerWrap } from '../style/styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { isLogout } from '../store/modules/authSlice';
 
 const TopBar = () => {
+    const { selloginUser, isAuth } = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
     return (
         <div className='top-bar'>
             <TopBarInnerWrap>
@@ -13,12 +18,25 @@ const TopBar = () => {
                     </li>
                 </ul>
                 <ul>
-                    <li>
-                        <a href='#'>로그인</a>
-                    </li>
-                    <li>
-                        <a href='#'>회원가입</a>
-                    </li>
+                    {!isAuth ? (
+                        <>
+                            <li>
+                                <Link to='/login'>로그인</Link>
+                            </li>
+                            <li>
+                                <Link to='/join'>회원가입</Link>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <span className='userName'>{selloginUser.name}님</span>
+                            <li className='logout'>
+                                <a href='#' onClick={() => dispatch(isLogout())}>
+                                    로그아웃
+                                </a>
+                            </li>
+                        </>
+                    )}
                     <li>
                         <a href='#'>고객센터</a>
                     </li>

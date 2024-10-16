@@ -333,7 +333,67 @@ const initialState = {
                 },
             ],
         },
-        Food: { name: '식품', product: [] },
+        Food: {
+            name: '식품',
+            product: [
+                {
+                    product_id: 1,
+                    product_img:
+                        'https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/39895399538651-5c48dbab-2331-4f86-8344-ed7d1d6e1e64.jpg',
+                    product_info_img: [
+                        'https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2993996677944915-083a3391-3bd8-47e0-b9f3-fc98149b95e6.jpg',
+                        'https://thumbnail8.coupangcdn.com/thumbnails/remote/q89/image/retail/images/42639672340696-295e2f62-63ef-4185-9719-61ffcb5c444d.JPG',
+                    ],
+                    product_name: '동원 라이트 스탠다드 참치, 85g',
+                    product_price: 13500,
+                    product_sale_price: 12140,
+                    product_in_cnt: 8,
+                    product_review_percent: 90,
+                    product_review: 264069,
+                    product_seller: '동원',
+                    sale_type: '',
+                    product_category: 'Food',
+                },
+                {
+                    product_id: 2,
+                    product_img:
+                        'https://thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/9097169936402870-b0802666-2b21-4254-886b-f6d82c1f46bc.jpg',
+                    product_info_img: [
+                        'https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/552427760472679-2988ac97-fe1b-4416-93a6-e43e0972095c.jpg',
+                        'https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/retail/images/552429047486169-ab0b963b-88a7-46f5-a208-baf7eb17846d.jpg',
+                    ],
+                    product_name:
+                        '농심 신라면 120g x 5p + 안성탕면 125g x 5p + 얼큰 너구리 120g x 5p + 짜파게티 140g x 5p',
+                    product_price: 16610,
+                    product_sale_price: 15940,
+                    product_in_cnt: 1,
+                    product_review_percent: 99,
+                    product_review: 159722,
+                    product_seller: '농심',
+                    sale_type: '',
+                    product_category: 'Food',
+                },
+                {
+                    product_id: 3,
+                    product_img:
+                        'https://image8.coupangcdn.com/image/vendor_inventory/f3eb/9f762b8ac97928f9c4d2eff09df31c3c8e7f8362626416bb540d3adfda37.jpg',
+                    product_info_img: [
+                        'https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/d9db/e487d1a57ca8a58c9914f58c62e56de36ea0d4756e194aa44fe4e435e981.jpg',
+                        'https://thumbnail9.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/e447/a495706886463b6f921be1c1f916a2f9dbd284722e956a9387d8d8b833c7.jpg',
+                        'https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/8764/f22cd41a269bc843027b3bd7df7698345e9b6c31971ede85e40ddd4c4cbc.jpg',
+                    ],
+                    product_name: '당도폭발 달콤탱글 씨없는 청도반시 연시감 홍시 2.5kg, 소과',
+                    product_price: 15800,
+                    product_sale_price: 12800,
+                    product_in_cnt: 1,
+                    product_review_percent: 100,
+                    product_review: 1,
+                    product_seller: '유니랩',
+                    sale_type: '',
+                    product_category: 'Food',
+                },
+            ],
+        },
         Kitchen: {
             name: '주방용품',
             product: [
