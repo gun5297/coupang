@@ -10,8 +10,16 @@ export const HeaderWrap = styled.div`
 `;
 export const FooterWrap = styled.div`
     width: 100%;
-    height: 37.3rem;
-    background-color: #000;
+    border-top: 2px solid #ddd;
+    user-select: none;
+    .img-wrap {
+        width: 100%;
+        height: 371px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
 `;
 export const NavWrap = styled.div`
     .inner {
@@ -88,8 +96,7 @@ export const InnerWrap = styled.div`
     margin: auto;
     box-sizing: border-box;
     position: relative;
-    h1 {
-    }
+    padding-bottom: 80px;
 `;
 
 export const TopBarInnerWrap = styled.section`

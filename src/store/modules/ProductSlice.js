@@ -232,7 +232,7 @@ const initialState = {
                     product_review_percent: 90,
                     product_review: 94181,
                     product_seller: '주식회사 에이블',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'Beauty',
                 },
                 {
@@ -272,7 +272,7 @@ const initialState = {
                     product_review_percent: 95,
                     product_review: 89229,
                     product_seller: '(주)유니토아',
-                    sale_type: '',
+                    sale_type: 'globalSale',
                     product_category: 'Beauty',
                 },
                 {
@@ -328,7 +328,7 @@ const initialState = {
                     product_review_percent: 95,
                     product_review: 968,
                     product_seller: '궈유무역 유한회사',
-                    sale_type: '',
+                    sale_type: 'globalSale',
                     product_category: 'Beauty',
                 },
             ],
@@ -406,7 +406,7 @@ const initialState = {
                     product_review_percent: 100,
                     product_review: 285836,
                     product_seller: '곰곰',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'Food',
                 },
                 {
@@ -423,6 +423,24 @@ const initialState = {
                     product_review_percent: 85,
                     product_review: 30,
                     product_seller: '주식회사 그리심',
+                    sale_type: '',
+                    product_category: 'Food',
+                },
+                {
+                    product_id: 6,
+                    product_img:
+                        'https://thumbnail8.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/2019/09/20/13/1/3d46565f-2ffd-4cf5-b2cf-71095198f044.jpg',
+                    product_info_img: [
+                        'https://thumbnail6.coupangcdn.com/thumbnails/remote/q89/image/retail/images/2019/09/20/13/9/a9cce7fb-b09a-43a4-aebd-1d98aeb27dca.jpg',
+                        'https://thumbnail10.coupangcdn.com/thumbnails/remote/q89/image/retail/images/1422742986981807-214fbf59-58aa-4cb0-9ca9-be38d5093c98.jpg',
+                    ],
+                    product_name: '대림선 부산 어묵 마당놀이2 20장, 1kg',
+                    product_price: 5940,
+                    product_sale_price: 5660,
+                    product_in_cnt: 20,
+                    product_review_percent: 98,
+                    product_review: 76329,
+                    product_seller: '쿠팡',
                     sale_type: '',
                     product_category: 'Food',
                 },
@@ -519,13 +537,33 @@ const initialState = {
                         'https://thumbnail7.coupangcdn.com/thumbnails/remote/q89/image/vendor_inventory/eb22/7985f2b9a65543f2e9fad991e1e5d9a83d3dd54b7d18f116fbae15556b1b.jpg',
                     ],
                     product_name: '비욘드퍼니싱 폭포 수전',
-                    product_price: 13500,
+                    product_price: 135000,
                     product_sale_price: 52960,
                     product_in_cnt: 1,
                     product_review_percent: 82,
                     product_review: 291,
                     product_seller: '주식회사 문원',
                     sale_type: '',
+                    product_category: 'Kitchen',
+                },
+                {
+                    product_id: 6,
+                    product_img:
+                        'https://thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/960c/f67814b69b51856b7b2d3112bcb2a707d8f8062262aff325274b6c1edf24.jpg',
+                    product_info_img: [
+                        'https://image1.coupangcdn.com/image/vendor_inventory/c7e8/ade7cb1f8d8e301a9854972c8ca3447ee9d821f7955c123c591e3ac5ad2f.jpg',
+                        'https://image1.coupangcdn.com/image/vendor_inventory/3e5d/9bf4025cad705111f639567019a8f35833b049a776321d114d06c2e89337.jpg',
+                        'https://image1.coupangcdn.com/image/vendor_inventory/efd4/e2ee624fb40069649e497b47369ac6d586ddd280cb4658e7ff2aa4a1399a.jpg',
+                        'https://image1.coupangcdn.com/image/vendor_inventory/a21b/c1d19e1893692daf50d8017c57c63c297472c7e092a5574571a5954f8e8f.jpg',
+                    ],
+                    product_name: '두유제조기 가정용 이유식 메이커 죽 콩물 만들기 기계',
+                    product_price: 49600,
+                    product_sale_price: 39400,
+                    product_in_cnt: 1,
+                    product_review_percent: 0,
+                    product_review: 0,
+                    product_seller: '윤그레쇼핑',
+                    sale_type: 'globalSale',
                     product_category: 'Kitchen',
                 },
             ],
@@ -619,7 +657,7 @@ const initialState = {
                     product_review_percent: 84,
                     product_review: 1721,
                     product_seller: '리빙공감',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'Household',
                 },
                 {
@@ -678,6 +716,23 @@ const initialState = {
                     sale_type: '',
                     product_category: 'Household',
                 },
+                {
+                    product_id: 8,
+                    product_img:
+                        'https://thumbnail10.coupangcdn.com/thumbnails/remote/492x492ex/image/vendor_inventory/c7f5/ab2e7b99bc6bcc4bb9945043fccd0e73712aec4f6a558d9e107e2e54bb6b.jpg',
+                    product_info_img: [
+                        'https://image1.coupangcdn.com/image/vendor_inventory/3928/4f0e7ed6513c3559da818c5769b7b0f2ea9ade9408d78c19644f4f7cad31.jpg',
+                    ],
+                    product_name: '피죤 고농축 항균섬유유연제 보타닉 향세트(베르가못+자몽+애플밤)',
+                    product_price: 19900,
+                    product_sale_price: 16900,
+                    product_in_cnt: 3,
+                    product_review_percent: 100,
+                    product_review: 37,
+                    product_seller: '주식회사쿨앤쿨',
+                    sale_type: '',
+                    product_category: 'Household',
+                },
             ],
         },
         HomeInterior: {
@@ -702,7 +757,7 @@ const initialState = {
                     product_review_percent: 72,
                     product_review: 33,
                     product_seller: '주식회사르마',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'HomeInterior',
                 },
                 {
@@ -743,7 +798,7 @@ const initialState = {
                     product_review_percent: 85,
                     product_review: 24627,
                     product_seller: '인룸',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'HomeInterior',
                 },
                 {
@@ -860,7 +915,7 @@ const initialState = {
                     product_review_percent: 80,
                     product_review: 178,
                     product_seller: '쿠팡',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'Electronics',
                 },
                 {
@@ -969,7 +1024,7 @@ const initialState = {
                     product_review_percent: 87,
                     product_review: 396,
                     product_seller: '스카이제로무역 유한회사',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'AutoAccessories',
                 },
                 {
@@ -1031,7 +1086,7 @@ const initialState = {
                     product_review_percent: 78,
                     product_review: 4,
                     product_seller: '모나미',
-                    sale_type: '',
+                    sale_type: 'globalSale',
                     product_category: 'Office',
                 },
                 {
@@ -1069,7 +1124,7 @@ const initialState = {
                     product_review_percent: 92,
                     product_review: 24953,
                     product_seller: '(주)참진상사',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'Office',
                 },
                 {
@@ -1147,7 +1202,7 @@ const initialState = {
                     product_review_percent: 92,
                     product_review: 5393,
                     product_seller: '제로투히어로',
-                    sale_type: '',
+                    sale_type: 'panSale',
                     product_category: 'Health',
                 },
                 {
@@ -1227,7 +1282,7 @@ const initialState = {
                     product_review_percent: 0,
                     product_review: 0,
                     product_seller: '만땅하우스',
-                    sale_type: '',
+                    sale_type: 'globalSale',
                     product_category: 'SingleLife',
                 },
                 {
@@ -1462,8 +1517,16 @@ const initialState = {
         },
     },
     allProducts: [],
-    panSaleProducts: [],
-    golSaleProduct: [],
+    panSaleProducts: {
+        title: '판매자특가',
+        color: 'var(--red-main)',
+        product: [],
+    },
+    golSaleProduct: {
+        title: '로켓직구 글로벌 특가',
+        color: '#9e20d3',
+        product: [],
+    },
 };
 
 export const ProductSlice = createSlice({
@@ -1474,15 +1537,22 @@ export const ProductSlice = createSlice({
             state.selPanSale = state.PanSale.find((item) => item.id === action.payload);
         },
         getAllProducts: (state) => {
+            state.allProducts = [];
             Object.keys(state.Product).forEach((category) => {
                 state.allProducts.push(...state.Product[category].product);
             });
         },
-        DelAllProducts: (state) => {
-            state.allProducts = [];
+        getSaleProducts: (state) => {
+            state.panSaleProducts.product = Object.keys(state.Product)
+                .flatMap((category) => state.Product[category].product)
+                .filter((product) => product.sale_type === 'panSale');
+
+            state.golSaleProduct.product = Object.keys(state.Product)
+                .flatMap((category) => state.Product[category].product)
+                .filter((product) => product.sale_type === 'globalSale');
         },
     },
 });
 
-export const { getAllProducts, DelAllProducts } = ProductSlice.actions;
+export const { getAllProducts, getSaleProducts } = ProductSlice.actions;
 export default ProductSlice.reducer;

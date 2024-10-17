@@ -37,12 +37,19 @@ const initialState = {
             category: 'Electronics',
             product_id: 6,
         },
-        { id: 6, img: 'images/Todays/img6.jpg', name: '아침앤두유제조기', category: 'Kitchen' },
+        {
+            id: 6,
+            img: 'images/Todays/img6.jpg',
+            name: '아침앤두유제조기',
+            category: 'Kitchen',
+            product_id: 6,
+        },
         {
             id: 7,
             img: 'images/Todays/img7.jpg',
             name: '고농축 피죤 보타닉',
             category: 'Household',
+            product_id: 8,
         },
         {
             id: 8,
@@ -51,7 +58,7 @@ const initialState = {
             category: 'Health',
             product_id: 3,
         },
-        { id: 9, img: 'images/Todays/img9.jpg', name: '부산어묵', category: 'Food' },
+        { id: 9, img: 'images/Todays/img9.jpg', name: '부산어묵', category: 'Food', product_id: 6 },
     ],
     selTodayProduct: {},
 };

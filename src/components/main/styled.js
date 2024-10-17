@@ -151,3 +151,83 @@ export const SideBannerWrap = styled.div`
         }
     }
 `;
+
+export const TodaySaleListWrap = styled.div`
+    .inner {
+        position: relative;
+        h3 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            span {
+                color: ${(props) => (props.fzcolor ? props.fzcolor : null)};
+                font-weight: 700;
+            }
+        }
+        ul {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+        > div {
+            position: absolute;
+            transform: translateY(-50%);
+            padding: 0%;
+            background: #fff;
+            border: 1px solid #ddd;
+            &.prev {
+                left: -30px;
+                top: 50%;
+            }
+            &.next {
+                right: -30px;
+                top: 50%;
+            }
+            i {
+                font-size: 30px;
+                cursor: pointer;
+                color: #999;
+            }
+        }
+    }
+`;
+export const TodaySaleItemWrap = styled.li`
+    width: 196px;
+    height: 350px;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 4px;
+    margin-right: 4px;
+    &:hover {
+        .name {
+            color: var(--blue-main);
+        }
+    }
+    .img-wrap {
+        width: 100%;
+        img {
+            width: 100%;
+        }
+    }
+    p {
+        font-size: 1.4rem;
+        &.name {
+            margin-bottom: 8px;
+        }
+        &.product_sale_price {
+            font-size: 1.6rem;
+            color: var(--red-main);
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+    }
+    .review {
+        display: flex;
+        span {
+            font-size: 1.2rem;
+            color: #999;
+        }
+    }
+`;

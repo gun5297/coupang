@@ -1,6 +1,6 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { Product_review_percent, ProductItemWrap } from './styled';
-import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ProductItemWrap } from './styled';
+import Product_review_percent from '../../ui/Product_review_percent';
 
 const ProductItem = ({
     product_id,
@@ -45,10 +45,7 @@ const ProductItem = ({
                 </p>
             </div>
             <div className='review'>
-                <Product_review_percent width={product_review_percent + '%'}>
-                    <span className='product_review_percent0'></span>
-                    <span className='product_review_percent1'></span>
-                </Product_review_percent>
+                <Product_review_percent product_review_percent={product_review_percent} />
                 <span>({product_review})</span>
             </div>
         </ProductItemWrap>

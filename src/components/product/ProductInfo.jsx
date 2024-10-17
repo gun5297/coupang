@@ -1,7 +1,11 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { Product_review_percent, ProductInfoWrap } from './styled';
+import { useParams } from 'react-router-dom';
+import { ProductInfoWrap } from './styled';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+import Recommended from './Recommended';
+import Product_sale_price from '../../ui/Product_sale_price';
+import Product_price from '../../ui/Product_price';
+import Product_review_percent from '../../ui/Product_review_percent';
 
 const ProductInfo = () => {
     const { category, product_id } = useParams();
@@ -16,7 +20,6 @@ const ProductInfo = () => {
     const currentDate = new Date();
     const month = currentDate.getMonth() + 1;
     const date = currentDate.getDate();
-    const navigate = useNavigate();
 
     useEffect(() => {
         setCnt(1);
@@ -35,10 +38,9 @@ const ProductInfo = () => {
                         {onProduct.product_name},{onProduct.product_in_cnt}개 , {cnt}개
                     </h2>
                     <div className='review'>
-                        <Product_review_percent width={onProduct.product_review_percent + '%'}>
-                            <span className='product_review_percent0'></span>
-                            <span className='product_review_percent1'></span>
-                        </Product_review_percent>
+                        <Product_review_percent
+                            product_review_percent={onProduct.product_review_percent}
+                        />
                         <p className='product_review'>
                             {onProduct.product_review
                                 .toString()
@@ -60,32 +62,8 @@ const ProductInfo = () => {
                                 .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                             원
                         </span>
-                        <p className='product_price'>
-                            {(onProduct.product_price * cnt)
-                                .toString()
-                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                            원
-                            <span>
-                                (1개당{' '}
-                                {(onProduct.product_price / onProduct.product_in_cnt)
-                                    .toString()
-                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                원) 쿠팡판매가
-                            </span>
-                        </p>
-                        <p className='product_sale_price'>
-                            {(onProduct.product_sale_price * cnt)
-                                .toString()
-                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                            원
-                            <span>
-                                (1개당{' '}
-                                {(onProduct.product_sale_price / onProduct.product_in_cnt)
-                                    .toString()
-                                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                원) 와우할인가
-                            </span>
-                        </p>
+                        <Product_price onProduct={onProduct} cnt={cnt} />
+                        <Product_sale_price onProduct={onProduct} cnt={cnt} />
                     </div>
                     <div className='product-cnt'>
                         <span>수량 : {cnt}개</span>
@@ -122,47 +100,7 @@ const ProductInfo = () => {
                     </div>
                 </div>
             </div>
-            <div className='recommended-product'>
-                <h2>
-                    현재 보고있는 상품과 유사한 상품 <span>추천!</span>
-                </h2>
-                <ul>
-                    {isProduct.map((item) => (
-                        <li
-                            key={item.product_id}
-                            onClick={() => navigate(`/product/${category}/info/${item.product_id}`)}
-                        >
-                            <div className='img-wrap'>
-                                <img src={item.product_img} alt={item.product_name} />
-                            </div>
-                            <div className='review'>
-                                <Product_review_percent width={item.product_review_percent + '%'}>
-                                    <span className='product_review_percent0'></span>
-                                    <span className='product_review_percent1'></span>
-                                </Product_review_percent>
-                                <p className='product_review'>{item.product_review}개 상품평</p>
-                            </div>
-                            <div className='text-wrap'>
-                                <p>{item.product_name}</p>
-                            </div>
-                            <div className='price-wrap'>
-                                <span>
-                                    {item.product_price
-                                        .toString()
-                                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                    원
-                                </span>
-                                <span>
-                                    {item.product_sale_price
-                                        .toString()
-                                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                                    원
-                                </span>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <Recommended isProduct={isProduct} />
             <div className='btm-wrap'>
                 <div className='tab-menu-wrap'>
                     <ul>

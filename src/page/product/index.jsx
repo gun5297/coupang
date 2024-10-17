@@ -4,12 +4,16 @@ import { ProductWrap } from './styled';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ProductList from '../../components/product/ProductList';
-import { DelAllProducts, getAllProducts } from '../../store/modules/ProductSlice';
+import { getAllProducts } from '../../store/modules/ProductSlice';
+import ProductPaging from '../../components/product/ProductPaging';
+import { usePaging } from '../../hooks/usePaging';
 
 const Product = () => {
     const { category, search } = useParams();
     const { Product, allProducts } = useSelector((state) => state.Product);
     const [onProduct, setOnProduct] = useState([]);
+    const { state, pageChange, onCurrent, onProducts, pageNumber } = usePaging(onProduct, 16);
+
     const dispatch = useDispatch();
     useEffect(() => {
         if (category === 'All') {
@@ -29,17 +33,28 @@ const Product = () => {
             }
         }
     }, [category, search, allProducts, Product]);
+
     useEffect(() => {
         dispatch(getAllProducts());
-        return () => {
-            dispatch(DelAllProducts());
-        };
     }, [dispatch]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [state]);
+
     return (
         <ProductWrap>
             <InnerWrap>
-                {onProduct.length > 0 ? (
-                    <ProductList product={onProduct} />
+                {onProducts.length > 0 ? (
+                    <>
+                        <ProductList product={onProducts} />
+                        <ProductPaging
+                            pageNumber={pageNumber}
+                            onCurrent={onCurrent}
+                            pageChange={pageChange}
+                            currentProduct={state}
+                        />
+                    </>
                 ) : (
                     <p>찾으시는 상품이 없습니다</p>
                 )}

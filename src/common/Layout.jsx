@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { LayoutWrap } from '../style/styled';
 import Footer from './Footer';
 import Header from './Header';
