@@ -94,4 +94,27 @@ export const AuthLoginWrap = styled.div`
             font-size: 1.6rem;
         }
     }
+    .quick_login {
+        position: fixed;
+        right: 100px;
+        bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            margin-right: 20px;
+            font-size: 2rem;
+            &:nth-child(1) {
+                background-color: var(--blue-main);
+                padding: 0px 10px;
+                color: #fafafa;
+            }
+            &:not(:first-child) {
+                cursor: pointer;
+                &:hover {
+                    color: var(--red-main);
+                }
+            }
+        }
+    }
 `;

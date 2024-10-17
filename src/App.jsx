@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter, HashRouter } from 'react-router-dom';
 import GlobalStyle from './style/GlobalStyle';
 import Layout from './common/Layout';
-import { AuthJoin, AuthLogin, Main, MyCoupang, Product } from './page';
+import { AuthJoin, AuthLogin, Cart, Main, MyCoupang, Product } from './page';
 import ProductInfo from './components/product/ProductInfo';
 
 const App = () => {
@@ -23,6 +23,7 @@ const App = () => {
                     </Route>
                     <Route path='/login' element={<AuthLogin />} />
                     <Route path='/Join' element={<AuthJoin />} />
+                    <Route path='/cart' element={<Cart />} />
                 </Routes>
             </BrowserRouter>
         </>

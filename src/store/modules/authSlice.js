@@ -5,13 +5,24 @@ const initialState = {
     loginUser: [
         {
             userID: uuidv4(),
-            email: 'test@naver.com',
+            email: 'wow@naver.com',
             password: '1111',
-            name: '테스터',
+            name: '와우회원',
             tel: '010-1234-1234',
+            user_type: 'wow',
             cart: {
-                length: '',
-                product: [{}],
+                product: [],
+            },
+        },
+        {
+            userID: uuidv4(),
+            email: 'general@naver.com',
+            password: '1111',
+            name: '일반회원',
+            tel: '010-1234-1234',
+            user_type: 'general',
+            cart: {
+                product: [],
             },
         },
     ],
@@ -60,8 +71,26 @@ export const authSlice = createSlice({
             state.selloginUser = editUser.find((user) => user.userID === userID);
             alert('수정되었습니다.');
         },
+        cartAddProduct: (state, action) => {
+            const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
+            const newCart = { ...action.payload };
+            user.cart.product.push(newCart);
+            state.selloginUser = user;
+        },
+        cartProductCntChange: (state, action) => {
+            const { product_id, product_cartegory, cnt } = action.payload;
+            const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
+            const productUpdate = user.cart.product.find(
+                (product) =>
+                    product.product_cartegory === product_cartegory &&
+                    product.product_id === product_id
+            );
+            productUpdate.cnt = cnt;
+            state.selloginUser = user;
+        },
     },
 });
 
-export const { isRegister, isLogin, isLogout, isChange } = authSlice.actions;
+export const { isRegister, isLogin, isLogout, isChange, cartAddProduct, cartProductCntChange } =
+    authSlice.actions;
 export default authSlice.reducer;

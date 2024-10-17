@@ -1,11 +1,16 @@
 import { useParams } from 'react-router-dom';
 import { ProductInfoWrap } from './styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import Recommended from './Recommended';
 import Product_sale_price from '../../ui/Product_sale_price';
 import Product_price from '../../ui/Product_price';
 import Product_review_percent from '../../ui/Product_review_percent';
+import { useDate } from '../../hooks/useDate';
+import { cartAddProduct } from '../../store/modules/authSlice';
+import Product_review from '../../ui/Product_review';
+import Product_sale_percent from '../../ui/Product_sale_percent';
+import Product_no_price from '../../ui/Product_no_price';
 
 const ProductInfo = () => {
     const { category, product_id } = useParams();
@@ -17,9 +22,11 @@ const ProductInfo = () => {
     const isProduct = Product[category].product.filter(
         (item) => item.product_id !== onProduct.product_id
     );
-    const currentDate = new Date();
-    const month = currentDate.getMonth() + 1;
-    const date = currentDate.getDate();
+    const { month, date } = useDate();
+    const dispatch = useDispatch();
+    const addCartClick = () => {
+        dispatch(cartAddProduct({ ...onProduct, cnt }));
+    };
 
     useEffect(() => {
         setCnt(1);
@@ -41,27 +48,11 @@ const ProductInfo = () => {
                         <Product_review_percent
                             product_review_percent={onProduct.product_review_percent}
                         />
-                        <p className='product_review'>
-                            {onProduct.product_review
-                                .toString()
-                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                            개 상품평
-                        </p>
+                        <Product_review product_review={onProduct.product_review} />
                     </div>
                     <div className='price'>
-                        <em>
-                            {Math.round(
-                                ((onProduct.product_price - onProduct.product_sale_price) /
-                                    onProduct.product_price) *
-                                    100
-                            ) + '%'}
-                        </em>
-                        <span>
-                            {onProduct.product_price
-                                .toString()
-                                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                            원
-                        </span>
+                        <Product_sale_percent onProduct={onProduct} />
+                        <Product_no_price product_price={onProduct.product_price} />
                         <Product_price onProduct={onProduct} cnt={cnt} />
                         <Product_sale_price onProduct={onProduct} cnt={cnt} />
                     </div>
@@ -93,7 +84,9 @@ const ProductInfo = () => {
                                 setCnt(!isNaN(value) && value >= 1 ? value : 1);
                             }}
                         />
-                        <button className='cart'>장바구니</button>
+                        <button className='cart' onClick={addCartClick}>
+                            장바구니
+                        </button>
                         <button className='buy'>
                             바로구매 <i className='xi-angle-right-min' />
                         </button>

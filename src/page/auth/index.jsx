@@ -85,6 +85,25 @@ const AuthLogin = () => {
                         </div>
                     </div>
                 </form>
+                <div className='quick_login'>
+                    <p>빠른로그인</p>
+                    <p
+                        onClick={() => {
+                            dispatch(isLogin({ email: 'wow@naver.com', password: '1111' }));
+                            navigate('/');
+                        }}
+                    >
+                        와우회원
+                    </p>
+                    <p
+                        onClick={() => {
+                            dispatch(isLogin({ email: 'general@naver.com', password: '1111' }));
+                            navigate('/');
+                        }}
+                    >
+                        일반회원
+                    </p>
+                </div>
             </InnerWrap>
         </AuthLoginWrap>
     );
