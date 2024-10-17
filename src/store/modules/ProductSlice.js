@@ -331,6 +331,23 @@ const initialState = {
                     sale_type: 'globalSale',
                     product_category: 'Beauty',
                 },
+                {
+                    product_id: 7,
+                    product_img: 'https://i.ibb.co/0KTytkc/main-img1.png',
+                    product_info_img: [
+                        'https://i.ibb.co/yp4mCmQ/img-1.png',
+                        'https://i.ibb.co/JrFzb0z/sangsae.webp',
+                    ],
+                    product_name: '신규 브랜드 YEADAM 귀요미 캐릭터 티셔츠, 핑크',
+                    product_price: 99000,
+                    product_sale_price: 49900,
+                    product_in_cnt: 1,
+                    product_review_percent: 100,
+                    product_review: 12032,
+                    product_seller: '(주)예담',
+                    sale_type: 'globalSale',
+                    product_category: 'Beauty',
+                },
             ],
         },
         Food: {
