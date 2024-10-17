@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, HashRouter } from 'react-router-dom';
 import GlobalStyle from './style/GlobalStyle';
 import Layout from './common/Layout';
 import { AuthJoin, AuthLogin, Main, MyCoupang, Product } from './page';

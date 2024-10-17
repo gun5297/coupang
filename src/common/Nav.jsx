@@ -16,7 +16,7 @@ const Nav = () => {
                 <div className='right'>
                     <h1>
                         <a href='#' onClick={() => navigate('/')}>
-                            <img src='/images/coupang-logo.png' alt='coupang' />
+                            <img src='images/coupang-logo.png' alt='coupang' />
                         </a>
                     </h1>
                     <SearchForm />

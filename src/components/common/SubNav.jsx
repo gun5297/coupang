@@ -5,30 +5,30 @@ const SubNav = () => {
         <SubNavWrap>
             <ul>
                 <li>
-                    <img src='/NavBtm/play.png' alt='play' />
+                    <img src='NavBtm/play.png' alt='play' />
                     <a href='#'>쿠팡플레이</a>
                 </li>
                 <li>
-                    <img src='/NavBtm/rocat.png' alt='rocat' />
+                    <img src='NavBtm/rocat.png' alt='rocat' />
                     <a href='#'>로켓배송</a>
                 </li>
                 <li>
-                    <img src='/NavBtm/frs.png' alt='frs' />
+                    <img src='NavBtm/frs.png' alt='frs' />
                     <a href='#'>로켓프레시</a>
                 </li>
                 <li>
-                    <img src='/NavBtm/biz.png' alt='biz' />
+                    <img src='NavBtm/biz.png' alt='biz' />
                     <a href='#'>쿠팡비즈</a>
                 </li>
                 <li>
-                    <img src='/NavBtm/jikgu.png' alt='jikgu' />
+                    <img src='NavBtm/jikgu.png' alt='jikgu' />
                     <a href='#'>로켓직구</a>
                 </li>
                 <li>
                     <a href='#'>골드박스</a>
                 </li>
                 <li>
-                    <img src='/NavBtm/pan.png' alt='pan' />
+                    <img src='NavBtm/pan.png' alt='pan' />
                     <a href='#'>판매자특가</a>
                 </li>
                 <li>

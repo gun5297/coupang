@@ -86,5 +86,22 @@ export const MyCoupangWrap = styled.div`
                 }
             }
         }
+        .btn-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            button {
+                padding: 10px 20px;
+                cursor: pointer;
+                border: none;
+                background: var(--blue-main);
+                color: #fafafa;
+                transition: all 0.3s;
+                &:hover {
+                    background-color: var(--red-main);
+                }
+            }
+        }
     }
 `;

@@ -6,10 +6,10 @@ const TopBanner = ({ onChnageTopBanner }) => {
             <section className='inner'>
                 <div className='img-wrap'>
                     <a href='#'>
-                        <img src='/images/top-bar/top1.jpg' alt='banner1' />
+                        <img src='images/top-bar/top1.jpg' alt='banner1' />
                     </a>
                     <a href='#'>
-                        <img src='/images/top-bar/top2.jpg' alt='banner2' />
+                        <img src='images/top-bar/top2.jpg' alt='banner2' />
                     </a>
                 </div>
             </section>

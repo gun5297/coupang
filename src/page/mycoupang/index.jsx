@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { InnerWrap } from '../../style/styled';
 import { MyCoupangWrap } from './styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { isChange } from '../../store/modules/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const MyCoupang = () => {
-    const { selloginUser } = useSelector((state) => state.auth);
+    const { selloginUser, isAuth } = useSelector((state) => state.auth);
     const [isUser, setIsUser] = useState({
         email: selloginUser.email,
         password: selloginUser.password,
@@ -19,15 +20,25 @@ const MyCoupang = () => {
         tel: false,
     });
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const onChange = (e) => {
         const { name, value } = e.target;
         setIsUser({ ...isUser, [name]: value });
+    };
+    const onClick = (e) => {
+        const { name } = e.target;
+        e.preventDefault();
+        onSubmit(e);
+        setIsEdit({ ...isEdit, [name]: false });
     };
     const onSubmit = (e) => {
         e.preventDefault();
         console.log({ userID: selloginUser.userID, ...isUser });
         dispatch(isChange({ userID: selloginUser.userID, ...isUser }));
     };
+    useEffect(() => {
+        if (!isAuth) navigate('/login');
+    }, [isAuth]);
     return (
         <MyCoupangWrap>
             <InnerWrap className='inner'>
@@ -53,14 +64,7 @@ const MyCoupang = () => {
                                         value={isUser.email}
                                         onChange={onChange}
                                     />
-                                    <button
-                                        type='submit'
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            onSubmit(e);
-                                            setIsEdit({ ...isEdit, email: false });
-                                        }}
-                                    >
+                                    <button type='submit' name='email' onClick={onClick}>
                                         변경완료
                                     </button>
                                 </div>
@@ -87,14 +91,7 @@ const MyCoupang = () => {
                                         value={isUser.name}
                                         onChange={onChange}
                                     />
-                                    <button
-                                        type='submit'
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            onSubmit(e);
-                                            setIsEdit({ ...isEdit, name: false });
-                                        }}
-                                    >
+                                    <button type='submit' name='name' onClick={onClick}>
                                         변경완료
                                     </button>
                                 </div>
@@ -121,14 +118,7 @@ const MyCoupang = () => {
                                         value={isUser.tel}
                                         onChange={onChange}
                                     />
-                                    <button
-                                        type='submit'
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            onSubmit(e);
-                                            setIsEdit({ ...isEdit, tel: false });
-                                        }}
-                                    >
+                                    <button type='submit' name='tel' onClick={onClick}>
                                         변경완료
                                     </button>
                                 </div>
@@ -152,7 +142,11 @@ const MyCoupang = () => {
                         </div>
                     </div>
                 </form>
-                <button className='out'>나가기</button>
+                <div className='btn-wrap'>
+                    <button className='out' onClick={() => navigate('/')}>
+                        나가기
+                    </button>
+                </div>
             </InnerWrap>
         </MyCoupangWrap>
     );
