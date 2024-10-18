@@ -86,4 +86,16 @@ export const PaymentWrap = styled.div`
             border-radius: 20px;
         }
     }
+    .pop {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        background-color: #fff;
+        padding: 5px;
+        box-sizing: border-box;
+        p {
+            font-size: 2.8889vw;
+            width: 100%;
+        }
+    }
 `;

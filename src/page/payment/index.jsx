@@ -1,7 +1,13 @@
-import { useSelector } from 'react-redux';
 import { PaymentWrap } from './styled';
+import { useEffect, useState } from 'react';
 
 const Payment = () => {
+    const [pop, setPop] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setPop(false);
+        }, 3000);
+    }, []);
     return (
         <PaymentWrap>
             <div className='title-wrap'>
@@ -29,6 +35,13 @@ const Payment = () => {
             <div className='btn-wrap'>
                 <button className='pay-buy'>15,600원 결제하기</button>
             </div>
+            {pop && (
+                <div className='pop'>
+                    <p>QR코드 까지 찍어봐주시다니 감사합니다 ^^</p>
+                    <p>저를 봅아주신다면 신입 프론트엔드 개발자 라고</p>
+                    <p>느끼지 못하도록 최고의 역량을 뿜어내겠습니다.</p>
+                </div>
+            )}
         </PaymentWrap>
     );
 };
