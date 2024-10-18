@@ -16,44 +16,45 @@ const Cart = () => {
             navigate('/login');
         }
     }, [isAuth]);
-    return (
-        <>
-            <CartWrap>
-                <InnerWrap>
-                    <div className='top'>
-                        <div className='img-wrap' onClick={() => navigate('/')}>
-                            <img src='images/coupang-logo.png' alt='' />
+    if (isAuth)
+        return (
+            <>
+                <CartWrap>
+                    <InnerWrap>
+                        <div className='top'>
+                            <div className='img-wrap' onClick={() => navigate('/')}>
+                                <img src='images/coupang-logo.png' alt='' />
+                            </div>
                         </div>
-                    </div>
-                    <section className='containner'>
-                        <div className='title' onClick={() => navigate('/')}>
-                            <h3>
-                                <i className='xi-angle-left' />
-                                장바구니
-                            </h3>
-                        </div>
-                        <div className='cart'>
-                            {selloginUser.cart.product.length > 0 ? (
-                                <>
-                                    <CartList />
-                                    <CartTotalPrice />
-                                </>
-                            ) : (
-                                <p className='no'>장바구니에 담은 상품이 없습니다.</p>
-                            )}
-                        </div>
-                        <div className='go-product' onClick={() => navigate('/')}>
-                            <img
-                                src='https://img1a.coupangcdn.com/image/static/product/cart/img_nonebasket4.jpg'
-                                alt='go'
-                            />
-                        </div>
-                    </section>
-                </InnerWrap>
-            </CartWrap>
-            <Footer />
-        </>
-    );
+                        <section className='containner'>
+                            <div className='title' onClick={() => navigate('/')}>
+                                <h3>
+                                    <i className='xi-angle-left' />
+                                    장바구니
+                                </h3>
+                            </div>
+                            <div className='cart'>
+                                {selloginUser.cart.product.length > 0 ? (
+                                    <>
+                                        <CartList />
+                                        <CartTotalPrice />
+                                    </>
+                                ) : (
+                                    <p className='no'>장바구니에 담은 상품이 없습니다.</p>
+                                )}
+                            </div>
+                            <div className='go-product' onClick={() => navigate('/')}>
+                                <img
+                                    src='https://img1a.coupangcdn.com/image/static/product/cart/img_nonebasket4.jpg'
+                                    alt='go'
+                                />
+                            </div>
+                        </section>
+                    </InnerWrap>
+                </CartWrap>
+                <Footer />
+            </>
+        );
 };
 
 export default Cart;

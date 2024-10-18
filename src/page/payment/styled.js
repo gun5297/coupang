@@ -87,15 +87,22 @@ export const PaymentWrap = styled.div`
         }
     }
     .pop {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         position: fixed;
         left: 50%;
         top: 50%;
+        transform: translate(-50%, -50%);
         background-color: #fff;
-        padding: 5px;
+        padding: 20px;
         box-sizing: border-box;
         p {
             font-size: 2.8889vw;
             width: 100%;
+            margin-bottom: 1vw;
         }
     }
 `;

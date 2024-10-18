@@ -7,12 +7,15 @@ import ProductList from '../../components/product/ProductList';
 import { getAllProducts } from '../../store/modules/ProductSlice';
 import ProductPaging from '../../components/product/ProductPaging';
 import { usePaging } from '../../hooks/usePaging';
+import SortMenu from '../../components/product/SortMenu';
+import { useSort } from '../../hooks/useSort';
 
 const Product = () => {
     const { category, search } = useParams();
     const { Product, allProducts } = useSelector((state) => state.Product);
     const [onProduct, setOnProduct] = useState([]);
-    const { state, pageChange, onCurrent, onProducts, pageNumber } = usePaging(onProduct, 16);
+    const { sort, selSort, setSelSort, sortedProducts } = useSort(onProduct);
+    const { state, pageChange, onCurrent, onProducts, pageNumber } = usePaging(sortedProducts, 16);
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -44,7 +47,7 @@ const Product = () => {
 
     return (
         <ProductWrap>
-            <InnerWrap>
+            <InnerWrap className='inner'>
                 <h2>
                     {search
                         ? `"${search}" 검색 결과`
@@ -52,6 +55,7 @@ const Product = () => {
                         ? '전체 상품'
                         : `${Product[category].name} 상품`}
                 </h2>
+                <SortMenu sort={sort} selSort={selSort} setSelSort={setSelSort} />
                 {onProducts.length > 0 ? (
                     <>
                         <ProductList product={onProducts} />

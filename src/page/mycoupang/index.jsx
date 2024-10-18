@@ -11,19 +11,20 @@ const MyCoupang = () => {
     const [menu, setMenu] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
-        if (!isAuth) navigate('/login');
-    }, [isAuth]);
-    return (
-        <MyCoupangWrap>
-            <InnerWrap className='inner'>
-                <ul className='btn-wrap'>
-                    <li onClick={() => setMenu(true)}>구매내역</li>
-                    <li onClick={() => setMenu(false)}>회원정보 수정</li>
-                </ul>
-                {menu ? <PurchaseList /> : <MyAuth />}
-            </InnerWrap>
-        </MyCoupangWrap>
-    );
+        !isAuth && navigate('/login');
+    }, []);
+    if (isAuth)
+        return (
+            <MyCoupangWrap>
+                <InnerWrap className='inner'>
+                    <ul className='btn-wrap'>
+                        <li onClick={() => setMenu(true)}>구매내역</li>
+                        <li onClick={() => setMenu(false)}>회원정보 수정</li>
+                    </ul>
+                    {menu ? <PurchaseList /> : <MyAuth />}
+                </InnerWrap>
+            </MyCoupangWrap>
+        );
 };
 
 export default MyCoupang;

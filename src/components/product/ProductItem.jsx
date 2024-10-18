@@ -46,7 +46,7 @@ const ProductItem = ({
             </div>
             <div className='review'>
                 <Product_review_percent product_review_percent={product_review_percent} />
-                <span>({product_review})</span>
+                <span>({product_review.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')})</span>
             </div>
         </ProductItemWrap>
     );

@@ -90,7 +90,7 @@ const AuthLogin = () => {
                     <p
                         onClick={() => {
                             dispatch(isLogin({ email: 'wow@naver.com', password: '1111' }));
-                            navigate('/');
+                            navigate(-1);
                         }}
                     >
                         와우회원
@@ -98,7 +98,7 @@ const AuthLogin = () => {
                     <p
                         onClick={() => {
                             dispatch(isLogin({ email: 'general@naver.com', password: '1111' }));
-                            navigate('/');
+                            navigate(-1);
                         }}
                     >
                         일반회원

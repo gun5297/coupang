@@ -374,3 +374,46 @@ export const ProductPopupWrap = styled.div`
         background-color: #fff;
     }
 `;
+
+export const SortMenuWrap = styled.div`
+    width: 100%;
+    min-height: 40px;
+    background-color: #fafafa;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    p {
+        color: #999;
+        font-size: 1.2rem;
+        margin-left: 30px;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+        font-weight: 500;
+        &:not(:last-of-type) {
+            &::after {
+                content: '';
+                width: 1px;
+                height: 100%;
+                background-color: #ddd;
+                position: absolute;
+                right: -12px;
+                top: 0;
+            }
+        }
+        &.active {
+            color: var(--blue-main);
+            &::before {
+                content: '\\e929';
+                font-family: xeicon;
+                position: absolute;
+                left: -15px;
+                top: 0;
+                font-size: 1.2rem;
+            }
+        }
+    }
+`;

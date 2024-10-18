@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProductInfoWrap } from './styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -17,6 +17,7 @@ const ProductInfo = () => {
     const { category, product_id } = useParams();
     const [cartPopup, setCartPopup] = useState(false);
     const [cnt, setCnt] = useState(1);
+    const { isAuth } = useSelector((state) => state.auth);
     const { Product } = useSelector((state) => state.Product);
     const onProduct = Product[category].product.find(
         (item) => item.product_id === Number(product_id)
@@ -26,12 +27,17 @@ const ProductInfo = () => {
     );
     const { month, date } = useDate();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const addCartClick = () => {
-        setCartPopup(true);
-        dispatch(cartAddProduct({ ...onProduct, cnt }));
-        setTimeout(() => {
-            setCartPopup(false);
-        }, 3000);
+        if (isAuth) {
+            setCartPopup(true);
+            dispatch(cartAddProduct({ ...onProduct, cnt }));
+            setTimeout(() => {
+                setCartPopup(false);
+            }, 3000);
+        } else {
+            navigate('/login');
+        }
     };
 
     useEffect(() => {
@@ -94,7 +100,15 @@ const ProductInfo = () => {
                         <button className='cart' onClick={addCartClick}>
                             장바구니
                         </button>
-                        <button className='buy'>
+                        <button
+                            className='buy'
+                            onClick={() => {
+                                isAuth
+                                    ? dispatch(cartAddProduct({ ...onProduct, cnt })) &
+                                      navigate('/cart')
+                                    : navigate('/login');
+                            }}
+                        >
                             바로구매 <i className='xi-angle-right-min' />
                         </button>
                         {cartPopup && <ProductPopup />}

@@ -5,7 +5,7 @@ const ProductPaging = ({ pageNumber, onCurrent, pageChange, currentProduct }) =>
     for (let i = 1; i <= pageNumber; i++) {
         arr.push(i);
     }
-    console.log(currentProduct);
+
     return (
         <ProductPagingWrap>
             <a
