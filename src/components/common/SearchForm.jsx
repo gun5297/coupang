@@ -36,7 +36,8 @@ const SearchForm = () => {
                         <li key={item.id} value={item.value}>
                             <a
                                 href='#'
-                                onClick={() => {
+                                onClick={(e) => {
+                                    e.preventDefault();
                                     setIsView(!isView);
                                     dispatch(isSelCategory(item.id));
                                 }}
