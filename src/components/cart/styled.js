@@ -196,4 +196,31 @@ export const CartTotalPriceWrap = styled.div`
             }
         }
     }
+    .kakaopay {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffff00;
+        box-sizing: border-box;
+        padding: 30px 50px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        .img-wrap {
+            margin-bottom: 10px;
+            width: 300px;
+            img {
+                width: 100%;
+                border-radius: 20px;
+            }
+        }
+    }
+    .phone-wrap {
+        position: fixed;
+        top: 50%;
+        right: 100px;
+        transform: translateY(-50%);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
 `;

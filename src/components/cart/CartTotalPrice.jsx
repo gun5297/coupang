@@ -1,16 +1,31 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CartTotalPriceWrap } from './styled';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { purchaseAddProduct } from '../../store/modules/authSlice';
+import PaymentPC from '../payment-pc/PaymentPC';
+import { useDate } from '../../hooks/useDate';
+import { usePrice } from '../../hooks/usePrice';
 
 const CartTotalPrice = () => {
     const { selloginUser } = useSelector((state) => state.auth);
-    const wowPrice = selloginUser.cart.product
-        .map((item) => item.product_sale_price * item.cnt)
-        .reduce((arr, crr) => arr + crr, 0);
-    const notWowPrice = selloginUser.cart.product
-        .map((item) => item.product_price * item.cnt)
-        .reduce((arr, crr) => arr + crr, 0);
-    const totalPrice = selloginUser.user_type === 'wow' ? wowPrice : notWowPrice;
+    const { wowPrice, notWowPrice, totalPrice } = usePrice();
+    const [buyPopup, setBuyPopup] = useState(false);
+    const [phone, setPhone] = useState(false);
+    const [pay, setPay] = useState(false);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
+    const buyClick = () => {
+        if (pay) {
+            alert('결제완료');
+            setBuyPopup(false);
+            dispatch(purchaseAddProduct(selloginUser.cart.product));
+            navigate('/mycoupang');
+        } else {
+            alert('결제를 진행해 주세요');
+        }
+    };
     return (
         <CartTotalPriceWrap>
             <h3>주문 예상 금액</h3>
@@ -39,7 +54,16 @@ const CartTotalPrice = () => {
             )}
 
             <div className='btn-wrap'>
-                <button>구매하기 ({selloginUser.cart.product.length})</button>
+                <button
+                    onClick={() => {
+                        setTimeout(() => {
+                            setPhone(true);
+                        }, 3000);
+                        setBuyPopup(true);
+                    }}
+                >
+                    구매하기 ({selloginUser.cart.product.length})
+                </button>
             </div>
             {selloginUser.user_type !== 'wow' && (
                 <div className='wow-change'>
@@ -49,6 +73,21 @@ const CartTotalPrice = () => {
                         원
                     </p>
                     <p>추가 할인받으세요</p>
+                </div>
+            )}
+            {buyPopup && (
+                <div className='kakaopay'>
+                    <div className='img-wrap'>
+                        <img src='payment.svg' alt='' />
+                    </div>
+                    <div className='btn-wrap'>
+                        <button onClick={buyClick}>결제완료</button>
+                    </div>
+                </div>
+            )}
+            {phone && (
+                <div className='phone-wrap'>
+                    <PaymentPC setPhone={setPhone} totalPrice={totalPrice} setPay={setPay} />
                 </div>
             )}
         </CartTotalPriceWrap>

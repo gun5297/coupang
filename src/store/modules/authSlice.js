@@ -13,6 +13,9 @@ const initialState = {
             cart: {
                 product: [],
             },
+            purchase: {
+                product: [],
+            },
         },
         {
             userID: uuidv4(),
@@ -22,6 +25,9 @@ const initialState = {
             tel: '010-1234-1234',
             user_type: 'general',
             cart: {
+                product: [],
+            },
+            purchase: {
                 product: [],
             },
         },
@@ -76,7 +82,7 @@ export const authSlice = createSlice({
             const newCart = { ...action.payload };
             const isProduct = user.cart.product.find(
                 (product) =>
-                    product.product_cartegory === action.payload.product_cartegory &&
+                    product.product_category === action.payload.product_category &&
                     product.product_id === action.payload.product_id
             );
             if (isProduct) {
@@ -114,6 +120,21 @@ export const authSlice = createSlice({
             user.cart.product = [];
             state.selloginUser = user;
         },
+        purchaseAddProduct: (state, action) => {
+            const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
+            const newProduct = [];
+            action.payload.forEach((item) => newProduct.push({ ...item, id: uuidv4() }));
+            user.purchase.product.push(...newProduct);
+            user.cart.product = [];
+            state.selloginUser = user;
+        },
+        purchaseDelProduct: (state, action) => {
+            const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
+            user.purchase.product = user.purchase.product.filter(
+                (purchase) => purchase.id !== action.payload
+            );
+            state.selloginUser = user;
+        },
     },
 });
 
@@ -126,5 +147,7 @@ export const {
     cartProductCntChange,
     cartDelProduct,
     cartAllDelProduct,
+    purchaseAddProduct,
+    purchaseDelProduct,
 } = authSlice.actions;
 export default authSlice.reducer;

@@ -2,12 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CartItemWrap } from './styled';
 import Product_no_price from '../../ui/Product_no_price';
 import Product_sale_percent from '../../ui/Product_sale_percent';
-import { useState } from 'react';
-import {
-    cartAllDelProduct,
-    cartDelProduct,
-    cartProductCntChange,
-} from '../../store/modules/authSlice';
+import { cartDelProduct, cartProductCntChange } from '../../store/modules/authSlice';
 
 const CartItem = ({
     product_category,

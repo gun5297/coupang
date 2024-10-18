@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { PaymentWrap } from './styled';
 
 const Payment = () => {
-    const { isAuth, selloginUser } = useSelector((state) => state.auth);
     return (
         <PaymentWrap>
             <div className='title-wrap'>
