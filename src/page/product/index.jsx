@@ -45,6 +45,13 @@ const Product = () => {
     return (
         <ProductWrap>
             <InnerWrap>
+                <h2>
+                    {search
+                        ? `"${search}" 검색 결과`
+                        : category === 'All'
+                        ? '전체 상품'
+                        : `${Product[category].name} 상품`}
+                </h2>
                 {onProducts.length > 0 ? (
                     <>
                         <ProductList product={onProducts} />

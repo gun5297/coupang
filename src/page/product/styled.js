@@ -4,4 +4,8 @@ export const ProductWrap = styled.div`
     position: relative;
     padding: 100px 0;
     min-height: 100vh;
+    h2 {
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
 `;

@@ -74,23 +74,57 @@ export const authSlice = createSlice({
         cartAddProduct: (state, action) => {
             const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
             const newCart = { ...action.payload };
-            user.cart.product.push(newCart);
+            const isProduct = user.cart.product.find(
+                (product) =>
+                    product.product_cartegory === action.payload.product_cartegory &&
+                    product.product_id === action.payload.product_id
+            );
+            if (isProduct) {
+                isProduct.cnt = isProduct.cnt + action.payload.cnt;
+            } else {
+                user.cart.product.push(newCart);
+            }
             state.selloginUser = user;
         },
         cartProductCntChange: (state, action) => {
-            const { product_id, product_cartegory, cnt } = action.payload;
+            const { product_id, product_category, cnt } = action.payload;
             const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
             const productUpdate = user.cart.product.find(
                 (product) =>
-                    product.product_cartegory === product_cartegory &&
+                    product.product_category === product_category &&
                     product.product_id === product_id
             );
             productUpdate.cnt = cnt;
             state.selloginUser = user;
         },
+        cartDelProduct: (state, action) => {
+            const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
+            const DelProduct = user.cart.product.filter(
+                (product) =>
+                    !(
+                        product.product_category === action.payload.product_category &&
+                        product.product_id === action.payload.product_id
+                    )
+            );
+            user.cart.product = DelProduct;
+            state.selloginUser = user;
+        },
+        cartAllDelProduct: (state) => {
+            const user = state.loginUser.find((user) => user.userID === state.selloginUser.userID);
+            user.cart.product = [];
+            state.selloginUser = user;
+        },
     },
 });
 
-export const { isRegister, isLogin, isLogout, isChange, cartAddProduct, cartProductCntChange } =
-    authSlice.actions;
+export const {
+    isRegister,
+    isLogin,
+    isLogout,
+    isChange,
+    cartAddProduct,
+    cartProductCntChange,
+    cartDelProduct,
+    cartAllDelProduct,
+} = authSlice.actions;
 export default authSlice.reducer;

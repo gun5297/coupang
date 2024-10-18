@@ -110,6 +110,7 @@ export const ProductInfoWrap = styled.div`
             justify-content: center;
             align-items: center;
             font-size: 1.8rem;
+            position: relative;
             input {
                 width: 100px;
                 height: 42px;
@@ -118,7 +119,7 @@ export const ProductInfoWrap = styled.div`
                 text-align: center;
                 outline: none;
             }
-            button {
+            > button {
                 width: 250px;
                 margin-left: 7px;
                 height: 42px;
@@ -342,5 +343,34 @@ export const ProductPagingWrap = styled.div`
             font-size: 2rem;
             font-weight: 700;
         }
+    }
+`;
+
+export const ProductPopupWrap = styled.div`
+    width: 240px;
+    height: 120px;
+    position: absolute;
+    border: 1px solid #ddd;
+    top: -120px;
+    left: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #333;
+    font-weight: 300;
+    background-color: #fff;
+    p {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 150px;
+        height: 35px;
+        border: 1px solid var(--blue-main);
+        color: var(--blue-main);
+        cursor: pointer;
+        background-color: #fff;
     }
 `;

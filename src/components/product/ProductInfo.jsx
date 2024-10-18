@@ -11,9 +11,11 @@ import { cartAddProduct } from '../../store/modules/authSlice';
 import Product_review from '../../ui/Product_review';
 import Product_sale_percent from '../../ui/Product_sale_percent';
 import Product_no_price from '../../ui/Product_no_price';
+import ProductPopup from './ProductPopup';
 
 const ProductInfo = () => {
     const { category, product_id } = useParams();
+    const [cartPopup, setCartPopup] = useState(false);
     const [cnt, setCnt] = useState(1);
     const { Product } = useSelector((state) => state.Product);
     const onProduct = Product[category].product.find(
@@ -25,7 +27,11 @@ const ProductInfo = () => {
     const { month, date } = useDate();
     const dispatch = useDispatch();
     const addCartClick = () => {
+        setCartPopup(true);
         dispatch(cartAddProduct({ ...onProduct, cnt }));
+        setTimeout(() => {
+            setCartPopup(false);
+        }, 3000);
     };
 
     useEffect(() => {
@@ -33,6 +39,7 @@ const ProductInfo = () => {
         window.scrollTo({
             top: 0,
         });
+        setCartPopup(false);
     }, [onProduct, category, product_id]);
     return (
         <ProductInfoWrap>
@@ -90,6 +97,7 @@ const ProductInfo = () => {
                         <button className='buy'>
                             바로구매 <i className='xi-angle-right-min' />
                         </button>
+                        {cartPopup && <ProductPopup />}
                     </div>
                 </div>
             </div>

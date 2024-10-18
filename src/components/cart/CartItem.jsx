@@ -3,7 +3,11 @@ import { CartItemWrap } from './styled';
 import Product_no_price from '../../ui/Product_no_price';
 import Product_sale_percent from '../../ui/Product_sale_percent';
 import { useState } from 'react';
-import { cartProductCntChange } from '../../store/modules/authSlice';
+import {
+    cartAllDelProduct,
+    cartDelProduct,
+    cartProductCntChange,
+} from '../../store/modules/authSlice';
 
 const CartItem = ({
     product_category,
@@ -64,6 +68,12 @@ const CartItem = ({
                         />
                     </div>
                 </div>
+                <span
+                    className='del-btn'
+                    onClick={() => dispatch(cartDelProduct({ product_category, product_id }))}
+                >
+                    삭제
+                </span>
             </div>
             <div className='product-info'>
                 <p>

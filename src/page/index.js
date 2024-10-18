@@ -4,3 +4,4 @@ export { default as AuthLogin } from './auth';
 export { default as AuthJoin } from './join';
 export { default as MyCoupang } from './mycoupang';
 export { default as Cart } from './cart';
+export { default as Payment } from './payment';
